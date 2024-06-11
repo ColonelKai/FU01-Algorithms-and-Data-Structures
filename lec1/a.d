@@ -6,18 +6,27 @@
 //         A[j+1] = A[j]
 //         j--
 //     A[j+1] = key
+import std.stdio;
+import std.conv;
+import std.array;
+import std.string;
 
-void main() {
-    import std.stdio, std.array, std.conv;
-
-
-    writeln("write line1");
-    auto line1 = readln();
+void main()
+{
+    // Read the first line (integer n)
+    auto line1 = readln().chomp();
+    int n = to!int(line1);
+    // Read the second line (array of integers)
     auto line2 = readln();
-
-    // parse line 1
-    int n = toInt(line1);
-
-    write(line1);
-    write(line2);
+    int[] arr;
+    foreach (token; line2.split)    {
+        arr ~= to!int(token);
+    }
+    
+    // Ensure the length of the array matches n
+    assert(arr.length == n, "Number of elements in the array does not match n");
+    
+    // Now you have both n and the array of integers
+    writeln("n:", n);
+    writeln("Array:", arr);
 }
