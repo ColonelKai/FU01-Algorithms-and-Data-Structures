@@ -11,6 +11,12 @@ import std.conv;
 import std.array;
 import std.string;
 
+void print_array(int[] array){
+    foreach(i; array){
+        writef("%d ", i);
+    } printf("\n");
+}
+
 void main()
 {
     // Read the first line (integer n)
@@ -26,7 +32,19 @@ void main()
     // Ensure the length of the array matches n
     assert(arr.length == n, "Number of elements in the array does not match n");
     
-    // Now you have both n and the array of integers
-    writeln("n:", n);
-    writeln("Array:", arr);
+    // print initial state
+    print_array(arr);
+
+
+    // implement pseudocode
+    for(int i = 0; i<n; i++) {
+        int curr = arr[i];
+        int j = i - 1;
+        while(j >= 0 && arr[j] > curr) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = curr;
+        print_array(arr);
+    }
 }
