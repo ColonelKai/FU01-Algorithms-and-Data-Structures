@@ -6,15 +6,12 @@
 //         A[j+1] = A[j]
 //         j--
 //     A[j+1] = key
-import std.stdio;
-import std.conv;
-import std.array;
-import std.string;
+import std.stdio, std.string, std.conv, std.array, std.algorithm;
 
 void print_array(int[] array){
-    foreach(i; array){
-        writef("%d ", i);
-    } printf("\n");
+    array.map!(to!string)
+     .join(" ")
+     .writeln();
 }
 
 void main()
@@ -37,7 +34,7 @@ void main()
 
 
     // implement pseudocode
-    for(int i = 0; i<n; i++) {
+    for(int i = 1; i<n; i++) {
         int curr = arr[i];
         int j = i - 1;
         while(j >= 0 && arr[j] > curr) {
