@@ -1,3 +1,5 @@
+module le6.b;
+
 import std.stdio;
 import std.array;
 import std.conv;
